@@ -1,14 +1,25 @@
+import { useState, useEffect } from 'react' 
 import React from 'react'
 
 const Carousel = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const goToPrevious = () => {
-
-    }
-
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+    };
+  
     const goToNext = () => {
-
-    }
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+  
+    const goToSlide = (index) => {
+      setCurrentIndex(index);
+    };
+    
 
   return (
     <div className="relative w-full max-w-3xl mx-auto overflow-hidden">
@@ -27,6 +38,7 @@ const Carousel = () => {
       <div className="flex justify-center mt-4 space-x-2">
         {images.map((_,index) => (
             <button key={index}
+            onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full ${index === currentIndex ? bg-black : bg-gray-500}`}></button>
         ))};
       </div>
