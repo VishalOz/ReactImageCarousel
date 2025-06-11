@@ -31,7 +31,7 @@ const App = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center h-[100vh]">
+    <div className="flex justify-center items-center h-[100vh] w-full max-w-xl mx-auto">
       <div className="w-[600px] h-[400px] rounded-xl shadow-lg relative">
         <img src={images[count]} alt={`image${count+1}`} className="rounded-xl shadow-lg w-[600px] h-[400px] shadow-xl"/>
 
