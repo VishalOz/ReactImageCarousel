@@ -10,6 +10,14 @@ const App = () => {
 
   const [count, setCount] = useState(0);
 
+  useEffect (() => {
+    const interval = setInterval(() => {
+      toNext();
+    }, 5000);
+    return () => clearInterval();
+  }, [count]);
+
+
   const toNext = () => {
     setCount((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
