@@ -33,7 +33,18 @@ const App = () => {
   return (
     <div className="flex justify-center items-center h-[100vh] w-full max-w-xl mx-auto">
       <div className="w-[600px] h-[400px] rounded-xl shadow-lg relative">
-        <img src={images[count]} alt={`image${count+1}`} className="rounded-xl shadow-lg w-[600px] h-[400px] shadow-xl"/>
+
+        <img src={images[count]} alt={`image${count+1}`} className="
+        rounded-xl shadow-lg w-[600px] h-[400px] shadow-xl transition-opacity duration-5000"/>
+
+        <div className='absolute bottom-4 left-1/2 -tranlate-x-5 flex space-x-2'>
+          {images.map((_, idx) => (
+            <button
+            key={idx}
+            onclick={ () => setCount(idx)}
+            className={`w-3 h-3 rounded-full ${idx === count ? 'bg-white' : 'bg-gray-400'}` }></button>
+          ))}
+        </div>
 
         <button 
         onClick={toPrev}
@@ -43,7 +54,7 @@ const App = () => {
         </button>
         <button 
         onClick={toNext}
-        className=" absolute top-1/2 left-150 -translate-x-1/2 w-10 h-10
+        className=" absolute top-1/2 left-144 -translate-x-1/2 w-10 h-10
          font-bold bg-gray-400/80 p-b-3 rounded-full text-white hover:bg-gray-300 cursor-pointer">
           )
         </button>
